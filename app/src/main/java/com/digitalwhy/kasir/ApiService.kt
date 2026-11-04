@@ -29,6 +29,19 @@ data class TransactionResponse(
     val message: String?
 )
 
+// --- Model Response Dashboard ---
+data class DashboardData(
+    val revenue: Double,
+    val transactions_count: Int,
+    val low_stock_count: Int,
+    val expiring_count: Int
+)
+
+data class DashboardResponse(
+    val status: String,
+    val data: DashboardData
+)
+
 // --- Interface API ---
 interface ApiService {
     @GET("api/products/{barcode}")
@@ -39,6 +52,9 @@ interface ApiService {
 
     @POST("api/transactions")
     suspend fun createTransaction(@Body request: TransactionRequest): Response<TransactionResponse>
+
+    @GET("api/dashboard")
+    suspend fun getDashboardData(): Response<DashboardResponse>
 }
 
 // --- Retrofit Client ---

@@ -6,129 +6,71 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class DashboardActivity : AppCompatActivity() {
 
-    private lateinit var database: AppDatabase
+    private lateinit var tvRevenue: TextView
+    private lateinit var tvProfit: TextView
+    private lateinit var tvLowStock: TextView
+    private lateinit var tvExpired: TextView
+    private lateinit var btnKasir: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        database = AppDatabase.getInstance(this)
+        // Status bar transparan
+        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
-        findViewById<MaterialCardView>(R.id.btnKasir).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        findViewById<MaterialButton>(R.id.btnManageProducts).setOnClickListener {
-            Toast.makeText(this, "Segera Hadir", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<MaterialButton>(R.id.btnHistory).setOnClickListener {
-            Toast.makeText(this, "Segera Hadir", Toast.LENGTH_SHORT).show()
+        // Inisialisasi View
+        tvRevenue = findViewById(R.id.tvRevenue)
+        tvProfit = findViewById(R.id.tvProfit)
+        tvLowStock = findViewById(R.id.tvLowStock)
+        tvExpired = findViewById(R.id.tvExpired)
+        btnKasir = findViewById(R.id.btnKasir)
+
+        // Set tanggal hari ini (Opsional, jika ada ID text tanggalnya)
+        // Misal: findViewById<TextView>(R.id.tvDate).text = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("id", "ID")).format(Date())
+
+        // Navigasi ke POS (jika tombol ada di aplikasi owner)
+        btnKasir.setOnClickListener {
+            // Karena di aplikasi Owner kita tidak punya scanner, kita bisa arahkan ke Activity lain atau Toast
+            Toast.makeText(this, "Buka aplikasi Digital Why POS untuk mulai berjualan", Toast.LENGTH_LONG).show()
         }
 
-        findViewById<TextView>(R.id.tvDate).text =
-            SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("id", "ID"))
-                .format(Calendar.getInstance().time)
-
-        loadDashboard()
+        loadDashboardData()
     }
 
-    private fun loadDashboard() {
+    private fun loadDashboardData() {
         lifecycleScope.launch {
-            val summary = withContext(Dispatchers.IO) { calculateSummary() }
+            try {
+                val response = ApiClient.apiService.getDashboardData()
+                if (response.isSuccessful && response.body()?.status == "success") {
+                    val data = response.body()?.data
+                    if (data != null) {
+                        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")).apply {
+                            maximumFractionDigits = 0
+                        }
 
-            findViewById<TextView>(R.id.tvRevenue).text = formatCurrency(summary.revenue)
-            findViewById<TextView>(R.id.tvProfit).text = formatCurrency(summary.profit)
-            findViewById<TextView>(R.id.tvLowStock).text = summary.lowStock.toString()
-            findViewById<TextView>(R.id.tvExpired).text = summary.expiring.toString()
-        }
-    }
-
-    private suspend fun calculateSummary(): DashboardSummary {
-        val products = database.productDao().getAllProducts()
-
-        val dayStart = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, 0)
-            set(Calendar.MINUTE, 0)
-            set(Calendar.SECOND, 0)
-            set(Calendar.MILLISECOND, 0)
-        }
-        val startMillis = dayStart.timeInMillis
-        val endMillis = (dayStart.clone() as Calendar).apply {
-            add(Calendar.DAY_OF_YEAR, 1)
-        }.timeInMillis
-
-        val transactions =
-            database.transactionDao().getTransactionsBetween(startMillis, endMillis)
-
-        val revenue = transactions.sumOf { it.totalAmount }
-
-        var profit = 0.0
-        transactions.forEach { transaction ->
-            transaction.itemsSummary.split(", ").forEach { item ->
-                val name = item.substringBeforeLast(" x", item)
-                val quantity = item.substringAfterLast(" x", "").toIntOrNull()
-                if (quantity != null) {
-                    val product = products.firstOrNull { it.name == name }
-                    if (product != null) {
-                        profit += (product.price - product.costPrice) * quantity
+                        tvRevenue.text = format.format(data.revenue)
+                        tvProfit.text = "Rp 0" // Sementara kita kosongkan atau isi dengan estimasi jika ada
+                        tvLowStock.text = data.low_stock_count.toString()
+                        tvExpired.text = data.expiring_count.toString()
                     }
+                } else {
+                    Toast.makeText(this@DashboardActivity, "Gagal memuat data", Toast.LENGTH_SHORT).show()
                 }
+            } catch (e: Exception) {
+                Toast.makeText(this@DashboardActivity, "Error Jaringan: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
-
-        val lowStock = products.count { it.stock < 5 }
-
-        val expiryFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US).apply {
-            isLenient = false
-        }
-        val today = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, 0)
-            set(Calendar.MINUTE, 0)
-            set(Calendar.SECOND, 0)
-            set(Calendar.MILLISECOND, 0)
-        }
-        val limit = (today.clone() as Calendar).apply {
-            add(Calendar.DAY_OF_YEAR, 30)
-        }
-
-        val expiring = products.count { product ->
-            val expiry = product.expiryDate ?: return@count false
-            val date = runCatching { expiryFormat.parse(expiry) }.getOrNull()
-                ?: return@count false
-            date.time in today.timeInMillis..limit.timeInMillis
-        }
-
-        return DashboardSummary(
-            revenue = revenue,
-            profit = profit,
-            lowStock = lowStock,
-            expiring = expiring
-        )
     }
-
-    private fun formatCurrency(value: Double): String {
-        val formatter = NumberFormat.getNumberInstance(Locale("id", "ID")).apply {
-            minimumFractionDigits = 0
-            maximumFractionDigits = 2
-        }
-        return "Rp ${formatter.format(value)}"
-    }
-
-    private data class DashboardSummary(
-        val revenue: Double,
-        val profit: Double,
-        val lowStock: Int,
-        val expiring: Int
-    )
 }
