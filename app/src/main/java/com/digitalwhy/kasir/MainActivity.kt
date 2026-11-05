@@ -356,7 +356,7 @@ class MainActivity : AppCompatActivity() {
             val name = etName.text.toString().trim()
             val costPrice = etCostPrice.text.toString().trim().toDoubleOrNull() ?: 0.0
             val price = etPrice.text.toString().trim().toDoubleOrNull()
-            val stock = etStock.text.toString().trim().toIntOrNull()
+            val stock = etStock.text.toString().trim().toDoubleOrNull()
 
             if (name.isEmpty() || price == null || stock == null) {
                 Toast.makeText(this, "Isi data dengan benar", Toast.LENGTH_SHORT).show()
