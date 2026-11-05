@@ -21,13 +21,18 @@ class ProductListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product_list)
+        try {
+            setContentView(R.layout.activity_product_list)
 
-        rvProducts = findViewById(R.id.rvProducts)
-        rvProducts.layoutManager = LinearLayoutManager(this)
-        rvProducts.adapter = adapter
+            rvProducts = findViewById(R.id.rvProducts)
+            rvProducts.layoutManager = LinearLayoutManager(this)
+            rvProducts.adapter = adapter
 
-        loadProducts()
+            loadProducts()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
 
     private fun loadProducts() {
@@ -74,12 +79,12 @@ class ProductListActivity : AppCompatActivity() {
             private val tvStock: TextView = view.findViewById(R.id.tvStock)
 
             fun bind(product: Product) {
-                tvName.text = product.name
-                tvBarcode.text = product.barcode
+                tvName.text = product.name ?: "Tanpa Nama"
+                tvBarcode.text = product.barcode ?: "-"
 
                 val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")).apply { maximumFractionDigits = 0 }
-                tvPrice.text = runCatching { format.format(product.price) }.getOrDefault("-")
-                tvStock.text = "Stok: ${product.stock}"
+                tvPrice.text = runCatching { format.format(product.price ?: 0.0) }.getOrDefault("-")
+                tvStock.text = "Stok: ${product.stock ?: 0.0}"
 
                 val iconRes = when (product.icon) {
                     "egg" -> R.drawable.ic_lucide_egg
