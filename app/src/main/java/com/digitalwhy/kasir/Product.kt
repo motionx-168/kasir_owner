@@ -8,9 +8,9 @@ data class Product(
     val name: String? = null,
     val price: Double? = 0.0,
     val stock: Double? = 0.0,
-    @SerializedName(value = "costPrice", alternate = ["cost_price"])
+    @SerializedName(value = "cost_price", alternate = ["costPrice"])
     val costPrice: Double? = 0.0,
-    @SerializedName(value = "expiryDate", alternate = ["expiry_date"])
+    @SerializedName(value = "expiry_date", alternate = ["expiryDate"])
     val expiryDate: String? = null,
     val type: String = "barcode",
     val icon: String = "package"

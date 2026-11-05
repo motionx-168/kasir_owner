@@ -3,7 +3,9 @@ package com.digitalwhy.kasir
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 data class ProductResponse(val status: String, val data: Product?)
 data class ProductsResponse(val status: String, val data: List<Product>?)
@@ -20,6 +22,9 @@ data class DashboardResponse(val status: String, val data: DashboardData)
 interface ApiService {
     @GET("api/products")
     suspend fun getAllProducts(): Response<ProductsResponse>
+
+    @POST("api/products")
+    suspend fun addProduct(@Body product: Product): Response<ProductResponse>
 
     @GET("api/dashboard")
     suspend fun getDashboardData(): Response<DashboardResponse>
