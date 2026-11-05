@@ -14,8 +14,4 @@
     <color name="text_primary">#F8FAFC</color>    <!-- Putih bersih -->
     <color name="text_secondary">#94A3B8</color>  <!-- Abu-abu kebiruan -->
     <color name="text_price">#00E5FF</color>      <!-- Harga pakai Teal cerah -->
-    
-    <!-- Scanner -->
-    <color name="laser_red">#FF4B4B</color>
-    <color name="scanner_overlay">#660B1120</color>
 </resources>
