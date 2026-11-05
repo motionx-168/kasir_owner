@@ -6,7 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.card.MaterialCardView
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.Locale
@@ -15,7 +15,9 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var tvProfit: TextView
     private lateinit var tvSubInfo: TextView
-    private lateinit var btnManageProducts: MaterialCardView
+    private lateinit var tvLowStock: TextView
+    private lateinit var tvExpired: TextView
+    private lateinit var btnManageProducts: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,8 @@ class DashboardActivity : AppCompatActivity() {
 
         tvProfit = findViewById(R.id.tvProfit)
         tvSubInfo = findViewById(R.id.tvSubInfo)
+        tvLowStock = findViewById(R.id.tvLowStock)
+        tvExpired = findViewById(R.id.tvExpired)
         btnManageProducts = findViewById(R.id.btnManageProducts)
 
         btnManageProducts.setOnClickListener {
@@ -47,12 +51,11 @@ class DashboardActivity : AppCompatActivity() {
                             maximumFractionDigits = 0
                         }
                         
-                        // Format: Rp 3.000
                         tvProfit.text = format.format(data.profit).replace("Rp", "Rp ")
-                        
-                        // Format: Omzet Rp 19.000 • 1 transaksi
                         val omzet = format.format(data.revenue).replace("Rp", "Rp ")
                         tvSubInfo.text = "Omzet $omzet • ${data.transactions_count} transaksi"
+                        tvLowStock.text = "${data.low_stock_count} Item"
+                        tvExpired.text = "${data.expiring_count} Item"
                     }
                 } else {
                     Toast.makeText(this@DashboardActivity, "Gagal memuat data", Toast.LENGTH_SHORT).show()
