@@ -37,6 +37,8 @@ class ProductListActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body()?.status == "success") {
                     val products = response.body()?.data ?: emptyList()
                     adapter.setData(products)
+                } else {
+                    Toast.makeText(this@ProductListActivity, "Gagal memuat produk", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 Toast.makeText(this@ProductListActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -74,9 +76,9 @@ class ProductListActivity : AppCompatActivity() {
             fun bind(product: Product) {
                 tvName.text = product.name
                 tvBarcode.text = product.barcode
-                
+
                 val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")).apply { maximumFractionDigits = 0 }
-                tvPrice.text = format.format(product.price)
+                tvPrice.text = runCatching { format.format(product.price) }.getOrDefault("-")
                 tvStock.text = "Stok: ${product.stock}"
 
                 val iconRes = when (product.icon) {
