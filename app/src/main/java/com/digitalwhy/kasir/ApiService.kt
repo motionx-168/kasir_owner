@@ -10,6 +10,11 @@ import retrofit2.http.Path
 
 // --- Model Response Produk ---
 data class ProductResponse(
+data class ProductsResponse(
+    val status: String,
+    val data: List<Product>?
+)
+
     val status: String,
     val data: Product?
 )
@@ -45,6 +50,9 @@ data class DashboardResponse(
 
 // --- Interface API ---
 interface ApiService {
+    @GET("api/products")
+    suspend fun getAllProducts(): Response<ProductsResponse>
+
     @GET("api/products/{barcode}")
     suspend fun getProductByBarcode(@Path("barcode") barcode: String): Response<ProductResponse>
 
