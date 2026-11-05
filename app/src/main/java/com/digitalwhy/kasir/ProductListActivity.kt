@@ -11,6 +11,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,8 +31,13 @@ class ProductListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor = android.graphics.Color.parseColor("#00BFA5")
+        androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
         try {
             setContentView(R.layout.activity_product_list)
+
+            window.statusBarColor = ContextCompat.getColor(this, R.color.dw_teal_dark)
+            WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
             rvProducts = findViewById(R.id.rvProducts)
             rvProducts.layoutManager = LinearLayoutManager(this)
