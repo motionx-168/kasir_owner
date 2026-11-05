@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
@@ -18,6 +19,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var tvLowStock: TextView
     private lateinit var tvExpired: TextView
     private lateinit var btnKasir: MaterialCardView
+    private lateinit var btnManageProducts: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class DashboardActivity : AppCompatActivity() {
         tvLowStock = findViewById(R.id.tvLowStock)
         tvExpired = findViewById(R.id.tvExpired)
         btnKasir = findViewById(R.id.btnKasir)
+        btnManageProducts = findViewById(R.id.btnManageProducts)
 
         // Set tanggal hari ini (Opsional, jika ada ID text tanggalnya)
         // Misal: findViewById<TextView>(R.id.tvDate).text = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("id", "ID")).format(Date())
@@ -42,6 +45,11 @@ class DashboardActivity : AppCompatActivity() {
         btnKasir.setOnClickListener {
             // Karena di aplikasi Owner kita tidak punya scanner, kita bisa arahkan ke Activity lain atau Toast
             Toast.makeText(this, "Buka aplikasi Digital Why POS untuk mulai berjualan", Toast.LENGTH_LONG).show()
+        }
+
+        // Navigasi ke halaman Kelola Produk
+        btnManageProducts.setOnClickListener {
+            startActivity(Intent(this, ProductListActivity::class.java))
         }
 
         loadDashboardData()
