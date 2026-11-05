@@ -61,7 +61,7 @@ class DashboardActivity : AppCompatActivity() {
                         }
 
                         tvRevenue.text = format.format(data.revenue)
-                        tvProfit.text = "Rp 0" // Sementara kita kosongkan atau isi dengan estimasi jika ada
+                        tvProfit.text = format.format(data.profit) // Sementara kita kosongkan atau isi dengan estimasi jika ada
                         tvLowStock.text = data.low_stock_count.toString()
                         tvExpired.text = data.expiring_count.toString()
                     }

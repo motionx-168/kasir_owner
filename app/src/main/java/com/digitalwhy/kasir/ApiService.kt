@@ -31,6 +31,7 @@ data class TransactionResponse(
 
 // --- Model Response Dashboard ---
 data class DashboardData(
+    val profit: Double,
     val revenue: Double,
     val transactions_count: Int,
     val low_stock_count: Int,
