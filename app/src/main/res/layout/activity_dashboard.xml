@@ -34,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/plus_jakarta_sans"
                 android:text="Halo, Owner 👋"
-                android:textSize="28sp"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -70,7 +71,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:text="Hari ini"
-                    android:textColor="#B3FFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:alpha="0.7"
                     android:textSize="12sp" />
 
                 <TextView
@@ -115,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:text="Rp 0"
-                    android:textSize="42sp"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="8dp"
@@ -129,7 +131,8 @@
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:textSize="13sp"
                     android:textStyle="normal"
-                    android:textColor="#CCFFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:alpha="0.8"
                     android:text="Belum ada transaksi hari ini."
                     android:layout_marginTop="4dp" />
 
@@ -168,13 +171,13 @@
                             android:src="@drawable/ic_lucide_box" android:layout_marginEnd="6dp" />
                         <TextView style="@style/Text.Label" android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:fontFamily="@font/plus_jakarta_sans"
-                            android:textColor="@color/text_secondary" android:textSize="12sp" android:text="Stok Menipis" />
+                            android:textColor="@color/text_secondary" android:textSize="14sp" android:textStyle="bold" android:text="Stok Menipis" />
                     </LinearLayout>
                     <TextView android:id="@+id/tvLowStock" style="@style/Text.Header"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:fontFamily="@font/plus_jakarta_sans"
                         android:text="0 Item" android:textColor="#FB923C"
-                        android:textSize="22sp" android:layout_marginTop="8dp" />
+                        android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -203,13 +206,13 @@
                             android:src="@drawable/ic_lucide_calendar" android:layout_marginEnd="6dp" />
                         <TextView style="@style/Text.Label" android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:fontFamily="@font/plus_jakarta_sans"
-                            android:textColor="@color/text_secondary" android:textSize="12sp" android:text="Hampir Expired" />
+                            android:textColor="@color/text_secondary" android:textSize="14sp" android:textStyle="bold" android:text="Hampir Expired" />
                     </LinearLayout>
                     <TextView android:id="@+id/tvExpired" style="@style/Text.Header"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:fontFamily="@font/plus_jakarta_sans"
                         android:text="0 Item" android:textColor="#FB7185"
-                        android:textSize="22sp" android:layout_marginTop="8dp" />
+                        android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>
@@ -259,7 +262,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
                             android:text="Stok" />
                     </LinearLayout>
                     <TextView
@@ -267,8 +271,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/plus_jakarta_sans"
-                        android:textColor="@color/dw_text_secondary"
-                        android:textSize="14sp"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
                         android:text="Tambah / Ubah"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
@@ -312,7 +317,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
                             android:text="Lihat Laporan" />
                     </LinearLayout>
                     <TextView
@@ -320,8 +326,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/plus_jakarta_sans"
-                        android:textColor="@color/dw_text_secondary"
-                        android:textSize="14sp"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
                         android:text="Omzet &amp; Laba"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
@@ -339,7 +346,8 @@
             android:fontFamily="@font/plus_jakarta_sans"
             android:text="Tren Omzet"
             android:textColor="@color/text_primary"
-            android:textSize="14sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chartDashboard"
