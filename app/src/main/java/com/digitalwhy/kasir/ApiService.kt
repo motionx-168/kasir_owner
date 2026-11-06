@@ -17,7 +17,9 @@ data class DashboardData(
     val profit: Double,
     val transactions_count: Int,
     val low_stock_count: Int,
-    val expiring_count: Int
+    val expiring_count: Int,
+    @SerializedName("chart_labels") val chart_labels: List<String> = emptyList(),
+    @SerializedName("chart_data") val chart_data: List<Double> = emptyList()
 )
 data class DashboardResponse(val status: String, val data: DashboardData)
 

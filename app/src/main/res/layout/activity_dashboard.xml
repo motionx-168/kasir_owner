@@ -295,5 +295,22 @@
 
         </GridLayout>
 
+        <!-- TREN OMZET CHART -->
+        <TextView
+            style="@style/Text.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="Tren Omzet"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chartDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
     </LinearLayout>
 </ScrollView>

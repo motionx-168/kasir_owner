@@ -2,7 +2,6 @@ package com.digitalwhy.kasir
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.formatter.ValueFormatter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
@@ -39,7 +30,6 @@ class ReportActivity : AppCompatActivity() {
     private lateinit var tvPengeluaran: TextView
     private lateinit var tvLabaBersih: TextView
     private lateinit var tvTransaksi: TextView
-    private lateinit var chartRevenue: LineChart
     private lateinit var rvReportItems: RecyclerView
     private lateinit var tvNoTransactions: TextView
 
@@ -65,7 +55,6 @@ class ReportActivity : AppCompatActivity() {
 
         bindViews()
         setupRecyclerView()
-        setupChart()
         setupActions()
         updatePeriodLabel()
         loadReport()
@@ -86,7 +75,6 @@ class ReportActivity : AppCompatActivity() {
         tvPengeluaran = findViewById(R.id.tvPengeluaran)
         tvLabaBersih = findViewById(R.id.tvLabaBersih)
         tvTransaksi = findViewById(R.id.tvTransaksi)
-        chartRevenue = findViewById(R.id.chartRevenue)
         rvReportItems = findViewById(R.id.rvReportItems)
         tvNoTransactions = findViewById(R.id.tvNoTransactions)
     }
@@ -105,41 +93,6 @@ class ReportActivity : AppCompatActivity() {
         }
         findViewById<MaterialButton>(R.id.btnExportPdf).setOnClickListener {
             Toast.makeText(this, "Export PDF segera hadir", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun setupChart() {
-        val secondary = ContextCompat.getColor(this, R.color.text_secondary)
-        val grid = ContextCompat.getColor(this, R.color.dw_border)
-
-        chartRevenue.apply {
-            description.isEnabled = false
-            legend.isEnabled = false
-            setDrawGridBackground(false)
-            setTouchEnabled(true)
-            isDragEnabled = true
-            setScaleEnabled(false)
-            setPinchZoom(false)
-            setNoDataText("Belum ada data grafik")
-            setNoDataTextColor(secondary)
-            setBackgroundColor(Color.TRANSPARENT)
-            extraLeftOffset = 8f
-            extraRightOffset = 8f
-            extraTopOffset = 8f
-            extraBottomOffset = 8f
-
-            xAxis.position = XAxis.XAxisPosition.BOTTOM
-            xAxis.setDrawGridLines(false)
-            xAxis.setAvoidFirstLastClipping(true)
-            xAxis.granularity = 1f
-            xAxis.textColor = secondary
-            xAxis.axisLineColor = grid
-
-            axisLeft.textColor = secondary
-            axisLeft.gridColor = grid
-            axisLeft.axisLineColor = grid
-            axisLeft.setDrawAxisLine(false)
-            axisRight.isEnabled = false
         }
     }
 
@@ -293,56 +246,11 @@ class ReportActivity : AppCompatActivity() {
         tvLabaBersih.text = formatRupiah(data.labaBersih)
         tvTransaksi.text = data.transaksi.toString()
 
-        renderChart(data.chartLabels, data.chartData)
-
         transactionAdapter.setData(data.recentTransactions)
         tvNoTransactions.visibility =
             if (data.recentTransactions.isEmpty()) View.VISIBLE else View.GONE
         rvReportItems.visibility =
             if (data.recentTransactions.isEmpty()) View.GONE else View.VISIBLE
-    }
-
-    private fun renderChart(labels: List<String>, values: List<Double>) {
-        if (values.isEmpty()) {
-            chartRevenue.clear()
-            chartRevenue.invalidate()
-            return
-        }
-
-        val teal = ContextCompat.getColor(this, R.color.dw_teal)
-        val entries = values.mapIndexed { index, value ->
-            Entry(index.toFloat(), value.toFloat())
-        }
-
-        val dataSet = LineDataSet(entries, "Omzet").apply {
-            color = teal
-            setCircleColor(teal)
-            lineWidth = 2.5f
-            circleRadius = 4f
-            setDrawCircleHole(false)
-            setDrawValues(false)
-            mode = LineDataSet.Mode.CUBIC_BEZIER
-            setDrawFilled(true)
-            fillColor = teal
-            fillAlpha = 45
-            highLightColor = Color.WHITE
-            setHighlightLineWidth(1f)
-        }
-
-        chartRevenue.data = LineData(dataSet)
-        chartRevenue.xAxis.valueFormatter = IndexAxisValueFormatter(labels.toTypedArray())
-        chartRevenue.xAxis.labelCount = labels.size.coerceIn(2, 7)
-        chartRevenue.axisLeft.valueFormatter = object : ValueFormatter() {
-            override fun getFormattedValue(value: Float): String {
-                return when {
-                    value >= 1_000_000f -> String.format(Locale.getDefault(), "%.1fJt", value / 1_000_000f)
-                    value >= 1_000f -> String.format(Locale.getDefault(), "%.0fRb", value / 1_000f)
-                    else -> value.toInt().toString()
-                }
-            }
-        }
-        chartRevenue.notifyDataSetChanged()
-        chartRevenue.invalidate()
     }
 
     private fun formatRupiah(value: Double): String {
