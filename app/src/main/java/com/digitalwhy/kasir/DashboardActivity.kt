@@ -52,8 +52,14 @@ class DashboardActivity : AppCompatActivity() {
                         }
                         
                         tvProfit.text = format.format(data.profit).replace("Rp", "Rp ")
-                        val omzet = format.format(data.revenue).replace("Rp", "Rp ")
-                        tvSubInfo.text = "Omzet $omzet • ${data.transactions_count} transaksi"
+                        
+                        if (data.transactions_count == 0) {
+                            tvSubInfo.text = "Belum ada transaksi hari ini. Yuk, mulai jualan di Kasir POS!"
+                        } else {
+                            val omzet = format.format(data.revenue).replace("Rp", "Rp ")
+                            tvSubInfo.text = "Omzet $omzet • ${data.transactions_count} transaksi"
+                        }
+                        
                         tvLowStock.text = "${data.low_stock_count} Item"
                         tvExpired.text = "${data.expiring_count} Item"
                     }
