@@ -34,4 +34,17 @@
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
+
+    <style name="Theme.DigitalWhy.DatePicker" parent="Theme.Material3.Dark.Dialog">
+        <item name="colorPrimary">@color/dw_teal</item>
+        <item name="colorOnPrimary">@color/bg_main</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorAccent">@color/dw_teal</item>
+        <item name="android:colorAccent">@color/dw_teal</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:colorBackground">@color/bg_surface</item>
+        <item name="android:windowBackground">@color/bg_surface</item>
+    </style>
 </resources>
