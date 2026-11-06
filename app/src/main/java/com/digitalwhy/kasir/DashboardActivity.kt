@@ -86,11 +86,11 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         findViewById<FloatingActionButton>(R.id.fabScan).setOnClickListener {
-            val launchIntent = packageManager.getLaunchIntentForPackage("com.digitalwhy.kasir")
-            if (launchIntent != null) {
-                startActivity(launchIntent)
+            val intent = packageManager.getLaunchIntentForPackage("com.digitalwhy.kasir")
+            if (intent != null) {
+                startActivity(intent)
             } else {
-                Toast.makeText(this, "Aplikasi Digital Why POS tidak ditemukan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardActivity, "Aplikasi POS tidak ditemukan. Pastikan sudah terinstal.", Toast.LENGTH_LONG).show()
             }
         }
 
