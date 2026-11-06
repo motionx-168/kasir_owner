@@ -64,9 +64,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:text="Hari ini"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp"
-                    android:alpha="0.8" />
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tvDate"
@@ -75,6 +74,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
                     android:layout_marginBottom="20dp" />
 
                 <LinearLayout
@@ -95,9 +96,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/plus_jakarta_sans"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="#E6FFFFFF"
                         android:textSize="14sp"
-                        android:alpha="0.8"
+                        android:textStyle="bold"
                         android:text="Omzet Hari Ini" />
                 </LinearLayout>
 
@@ -108,8 +109,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
                     android:text="Rp 0"
-                    android:textSize="40sp"
-                    android:layout_marginTop="4dp" />
+                    android:textSize="42sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:id="@+id/tvSubInfo"
@@ -117,7 +121,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/plus_jakarta_sans"
-                    android:alpha="0.7"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:textColor="#CCFFFFFF"
                     android:text="Belum ada transaksi hari ini."
                     android:layout_marginTop="4dp" />
 
