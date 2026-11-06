@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingBottom="100dp">
+        android:paddingBottom="120dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -360,7 +360,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:background="@color/dw_surface"
         app:elevation="8dp"
@@ -376,12 +376,11 @@
         android:id="@+id/fabScan"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
         android:contentDescription="Scan"
         android:src="@drawable/ic_lucide_scan"
         app:backgroundTint="@color/dw_teal"
-        app:layout_anchor="@id/bottomNavigation"
-        app:layout_anchorGravity="center_horizontal|top"
         app:tint="@color/dw_bg" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
