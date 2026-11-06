@@ -16,11 +16,12 @@ import java.util.Locale
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var tvDate: TextView
-    private lateinit var tvProfit: TextView // Variabel ini sekarang menampung Omzet
-    private lateinit var tvSubInfo: TextView // Variabel ini sekarang menampung Laba
+    private lateinit var tvProfit: TextView
+    private lateinit var tvSubInfo: TextView
     private lateinit var tvLowStock: TextView
     private lateinit var tvExpired: TextView
     private lateinit var btnManageProducts: MaterialCardView
+    private lateinit var btnLaporan: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,16 +37,17 @@ class DashboardActivity : AppCompatActivity() {
         tvLowStock = findViewById(R.id.tvLowStock)
         tvExpired = findViewById(R.id.tvExpired)
         btnManageProducts = findViewById(R.id.btnManageProducts)
+        btnLaporan = findViewById(R.id.btnLaporan)
 
         val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
         tvDate.text = dateFormat.format(Date())
 
-        btnLaporan.setOnClickListener {
-            startActivity(Intent(this, ReportActivity::class.java))
-        }
-
         btnManageProducts.setOnClickListener {
             startActivity(Intent(this, ProductListActivity::class.java))
+        }
+
+        btnLaporan.setOnClickListener {
+            startActivity(Intent(this, ReportActivity::class.java))
         }
 
         loadDashboardData()
@@ -62,13 +64,11 @@ class DashboardActivity : AppCompatActivity() {
                             maximumFractionDigits = 0
                         }
                         
-                        // ANGKA BESAR = OMZET
                         tvProfit.text = format.format(data.revenue).replace("Rp", "Rp ")
                         
                         if (data.transactions_count == 0) {
                             tvSubInfo.text = "Belum ada transaksi hari ini."
                         } else {
-                            // TEKS KECIL = LABA + JUMLAH TRANSAKSI
                             val laba = format.format(data.profit).replace("Rp", "Rp ")
                             tvSubInfo.text = "Laba $laba • ${data.transactions_count} transaksi"
                         }

@@ -22,6 +22,8 @@
 
         <!-- Halaman Kelola Produk -->
         <activity android:name=".ProductListActivity" android:exported="false" />
+        
+        <!-- Halaman Laporan WebView -->
         <activity android:name=".ReportActivity" android:exported="false" />
 
     </application>
