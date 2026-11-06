@@ -15,13 +15,14 @@ class ReportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
 
+        // Transparan status bar
         androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = android.graphics.Color.TRANSPARENT
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
         webView = findViewById(R.id.webViewReport)
 
-        // PENGATURAN ANTI-CACHE
+        // PENGATURAN ANTI-CACHE (Agar kalender Flatpickr langsung muncul)
         webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         webView.clearCache(true)
         webView.clearHistory()
@@ -31,11 +32,9 @@ class ReportActivity : AppCompatActivity() {
         webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
 
-        // Tambahkan timestamp di URL agar selalu dianggap halaman baru
-        val timestamp = System.currentTimeMillis()
-        val url = "http://127.0.0.1:8002/laporan?v=9999
-        
-        webView.loadUrl(url)
+        // Memuat URL halaman laporan Laravel
+        // Catatan: Ganti 8000 menjadi 8002 jika server Anda berjalan di port 8002
+        webView.loadUrl("http://127.0.0.1:8002/laporan")
     }
 
     override fun onBackPressed() {
