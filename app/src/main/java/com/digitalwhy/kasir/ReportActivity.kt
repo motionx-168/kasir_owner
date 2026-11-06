@@ -33,7 +33,7 @@ class ReportActivity : AppCompatActivity() {
 
         // Tambahkan timestamp di URL agar selalu dianggap halaman baru
         val timestamp = System.currentTimeMillis()
-        val url = "http://127.0.0.1:8002/laporan?v=$timestamp"
+        val url = "http://127.0.0.1:8002/laporan?v=9999
         
         webView.loadUrl(url)
     }
