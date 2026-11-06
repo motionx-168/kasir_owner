@@ -112,7 +112,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- BENTO GRID 1: STATISTIK -->
+        <!-- BENTO GRID 1: STATISTIK (Tinggi 110dp) -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
             <!-- Stok Menipis -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_marginEnd="6dp"
                 app:cardBackgroundColor="@color/dw_surface"
@@ -132,8 +132,9 @@
                 app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:gravity="center_vertical"
                     android:padding="16dp">
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -147,14 +148,14 @@
                     <TextView android:id="@+id/tvLowStock" style="@style/Text.Header"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="0 Item" android:textColor="#FB923C"
-                        android:textSize="22sp" android:layout_marginTop="12dp" />
+                        android:textSize="22sp" android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Hampir Expired -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_marginStart="6dp"
                 app:cardBackgroundColor="@color/dw_surface"
@@ -164,8 +165,9 @@
                 app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:gravity="center_vertical"
                     android:padding="16dp">
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -179,23 +181,23 @@
                     <TextView android:id="@+id/tvExpired" style="@style/Text.Header"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="0 Item" android:textColor="#FB7185"
-                        android:textSize="22sp" android:layout_marginTop="12dp" />
+                        android:textSize="22sp" android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>
 
-        <!-- BENTO GRID 2: ACTION BUTTONS (MENGGUNAKAN CARD) -->
+        <!-- BENTO GRID 2: ACTION BUTTONS (Tinggi 110dp) -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="12dp">
 
             <!-- Kelola Produk Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnManageProducts"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_marginEnd="6dp"
                 app:cardBackgroundColor="@color/dw_surface"
@@ -209,23 +211,35 @@
                 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:gravity="center_vertical"
-                    android:padding="20dp">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_lucide_box"
-                        app:tint="@color/dw_teal"
-                        android:layout_marginEnd="12dp" />
-                    <TextView
+                    android:padding="16dp">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kelola\nProduk"
-                        android:textColor="@color/dw_text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_lucide_box"
+                            app:tint="@color/dw_teal"
+                            android:layout_marginEnd="6dp" />
+                        <TextView
+                            style="@style/Text.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/dw_text_primary"
+                            android:text="Kelola Produk" />
+                    </LinearLayout>
+                    <TextView
+                        style="@style/Text.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dw_text_secondary"
+                        android:textSize="12sp"
+                        android:text="Tambah / Ubah"
+                        android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -233,7 +247,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnLaporan"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_marginStart="6dp"
                 app:cardBackgroundColor="@color/dw_surface"
@@ -247,23 +261,35 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:gravity="center_vertical"
-                    android:padding="20dp">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_lucide_chart"
-                        app:tint="@color/dw_text_primary"
-                        android:layout_marginEnd="12dp" />
-                    <TextView
+                    android:padding="16dp">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Laporan"
-                        android:textColor="@color/dw_text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_lucide_chart"
+                            app:tint="@color/dw_text_primary"
+                            android:layout_marginEnd="6dp" />
+                        <TextView
+                            style="@style/Text.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/dw_text_primary"
+                            android:text="Laporan" />
+                    </LinearLayout>
+                    <TextView
+                        style="@style/Text.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dw_text_secondary"
+                        android:textSize="12sp"
+                        android:text="Lihat Omzet"
+                        android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
