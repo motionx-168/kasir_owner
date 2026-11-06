@@ -38,7 +38,7 @@ class ReportActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
 
         val timestamp = System.currentTimeMillis()
-        val url = "http://127.0.0.1:8002/laporan?nocache=$timestamp"
+        val url = "http://127.0.0.1:8002/laporan-v2"
         webView.loadUrl(url)
     }
 
