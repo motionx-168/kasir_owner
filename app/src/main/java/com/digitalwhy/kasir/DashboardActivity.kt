@@ -16,7 +16,9 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -60,6 +62,31 @@ class DashboardActivity : AppCompatActivity() {
 
         btnLaporan.setOnClickListener {
             startActivity(Intent(this, ReportActivity::class.java))
+        }
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNavigation.selectedItemId = R.id.nav_home
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_report -> {
+                    startActivity(Intent(this, ReportActivity::class.java))
+                    true
+                }
+                R.id.nav_stock -> {
+                    startActivity(Intent(this, ProductListActivity::class.java))
+                    true
+                }
+                R.id.nav_home -> true
+                R.id.nav_profile -> {
+                    Toast.makeText(this, "Profil segera hadir", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+
+        findViewById<FloatingActionButton>(R.id.fabChat).setOnClickListener {
+            Toast.makeText(this, "Fitur Chat segera hadir", Toast.LENGTH_SHORT).show()
         }
 
         loadDashboardData()

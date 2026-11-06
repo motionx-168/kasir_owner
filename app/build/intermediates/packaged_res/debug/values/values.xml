@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_main">#0F172A</color>
+    <color name="bg_sheet">#0F172A</color>
+    <color name="bg_surface">#1E293B</color>
+    <color name="dw_bg">#0F172A</color>
+    <color name="dw_blue">#38BDF8</color>
+    <color name="dw_border">#334155</color>
+    <color name="dw_dark_blue">#0F172A</color>
+    <color name="dw_green">#34D399</color>
+    <color name="dw_orange">#FB923C</color>
+    <color name="dw_red">#FB7185</color>
+    <color name="dw_surface">#1E293B</color>
+    <color name="dw_teal">#00BFA5</color>
+    <color name="dw_teal_dark">#00BFA5</color>
+    <color name="dw_text_primary">#F8FAFC</color>
+    <color name="dw_text_secondary">#94A3B8</color>
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <style name="Text.Body" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    <style name="Text.Display" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+    <style name="Text.Header" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+    <style name="Text.Label" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+    <style name="Theme.DigitalWhy.DatePicker" parent="Theme.Material3.Dark.Dialog">
+        <item name="colorPrimary">@color/dw_teal</item>
+        <item name="colorOnPrimary">@color/bg_main</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorAccent">@color/dw_teal</item>
+        <item name="android:colorAccent">@color/dw_teal</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:colorBackground">@color/bg_surface</item>
+        <item name="android:windowBackground">@color/bg_surface</item>
+    </style>
+    <style name="Widget.DigitalWhy.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#1A00BFA5</item>
+    </style>
+</resources>

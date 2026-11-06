@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_lucide_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_report"
+        android:icon="@drawable/ic_lucide_chart"
+        android:title="Laporan" />
+
+    <item
+        android:id="@+id/nav_stock"
+        android:icon="@drawable/ic_lucide_box"
+        android:title="Stok" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_lucide_user"
+        android:title="Profil" />
+
+</menu>

@@ -1,0 +1,150 @@
+[
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_bottom_sheet.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_bottom_sheet.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_pos.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_pos.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_wallet.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_wallet.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_home.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_home.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_item_report_transaction.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/item_report_transaction.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_item_product.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/item_product.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_bell.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_bell.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/font_pjs_medium.ttf.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/font/pjs_medium.ttf"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_option_dark.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_option_dark.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_milk.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_milk.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_wheat.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_wheat.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_package.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_package.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_item_spinner.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/item_spinner.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/font_pjs_bold.ttf.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/font/pjs_bold.ttf"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_circle_transparent.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/circle_transparent.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/color_nav_item_color.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/color/nav_item_color.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_box.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_box.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_activity_product_list.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/activity_product_list.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_message_circle.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_message_circle.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_dialog_period_picker.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/dialog_period_picker.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_button_gradient.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/button_gradient.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_chart.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_chart.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_activity_report.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/activity_report.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_total_bar_bg.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/total_bar_bg.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_dialog_dark.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_dialog_dark.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_egg.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_egg.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/font_plus_jakarta_sans.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/font/plus_jakarta_sans.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_calendar.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_calendar.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_activity_dashboard.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_hint_box.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_hint_box.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/layout_dialog_add_product.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/layout/dialog_add_product.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/font_pjs_regular.ttf.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/font/pjs_regular.ttf"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_hero_gradient.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_hero_gradient.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_ic_lucide_user.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/ic_lucide_user.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/drawable_bg_badge.xml.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/drawable/bg_badge.xml"
+    },
+    {
+        "merged": "com.digitalwhy.kasir.app-merged_res-33:/font_pjs_semibold.ttf.flat",
+        "source": "com.digitalwhy.kasir.app-main-35:/font/pjs_semibold.ttf"
+    }
+]
