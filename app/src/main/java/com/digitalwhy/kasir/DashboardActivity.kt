@@ -9,10 +9,13 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 class DashboardActivity : AppCompatActivity() {
 
+    private lateinit var tvDate: TextView
     private lateinit var tvProfit: TextView
     private lateinit var tvSubInfo: TextView
     private lateinit var tvLowStock: TextView
@@ -27,11 +30,17 @@ class DashboardActivity : AppCompatActivity() {
         window.statusBarColor = android.graphics.Color.TRANSPARENT
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
+        // Inisialisasi View
+        tvDate = findViewById(R.id.tvDate)
         tvProfit = findViewById(R.id.tvProfit)
         tvSubInfo = findViewById(R.id.tvSubInfo)
         tvLowStock = findViewById(R.id.tvLowStock)
         tvExpired = findViewById(R.id.tvExpired)
         btnManageProducts = findViewById(R.id.btnManageProducts)
+
+        // LOGIKA TANGGAL OTOMATIS
+        val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
+        tvDate.text = dateFormat.format(Date())
 
         btnManageProducts.setOnClickListener {
             startActivity(Intent(this, ProductListActivity::class.java))
