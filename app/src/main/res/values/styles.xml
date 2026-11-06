@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TEXT STYLES (Hanya font, warna dipanggil dari colors.xml) -->
+    <!-- HEADER: Untuk Sapaan & Tanggal -->
     <style name="Text.Header" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Text.Display" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">40sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
 
+    <!-- DISPLAY: Untuk Angka Laba (Rp 0) -->
+    <style name="Text.Display" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <!-- LABEL: Untuk Judul Card (Stok Menipis, dll) -->
     <style name="Text.Label" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
     </style>
 
+    <!-- BODY: Untuk Teks Biasa -->
     <style name="Text.Body" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
     </style>
 </resources>
