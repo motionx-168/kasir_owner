@@ -363,11 +363,11 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabChat"
+        android:id="@+id/fabScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Chat"
-        android:src="@drawable/ic_lucide_message_circle"
+        android:contentDescription="Scan"
+        android:src="@drawable/ic_lucide_scan"
         app:backgroundTint="@color/dw_teal"
         app:layout_anchor="@id/bottomNavigation"
         app:layout_anchorGravity="bottom|center_horizontal"

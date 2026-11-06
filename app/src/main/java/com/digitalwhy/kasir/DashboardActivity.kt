@@ -85,8 +85,13 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<FloatingActionButton>(R.id.fabChat).setOnClickListener {
-            Toast.makeText(this, "Fitur Chat segera hadir", Toast.LENGTH_SHORT).show()
+        findViewById<FloatingActionButton>(R.id.fabScan).setOnClickListener {
+            val launchIntent = packageManager.getLaunchIntentForPackage("com.digitalwhy.kasir")
+            if (launchIntent != null) {
+                startActivity(launchIntent)
+            } else {
+                Toast.makeText(this, "Aplikasi Digital Why POS tidak ditemukan", Toast.LENGTH_SHORT).show()
+            }
         }
 
         loadDashboardData()
