@@ -280,7 +280,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/dw_text_primary"
-                            android:text="Laporan" />
+                            android:text="Lihat Laporan" />
                     </LinearLayout>
                     <TextView
                         style="@style/Text.Body"
@@ -288,7 +288,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/dw_text_secondary"
                         android:textSize="14sp"
-                        android:text="Lihat Omzet"
+                        android:text="Omzet &amp; Laba"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
