@@ -16,11 +16,11 @@ import java.util.Locale
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var tvDate: TextView
-    private lateinit var tvProfit: TextView
-    private lateinit var tvSubInfo: TextView
+    private lateinit var tvProfit: TextView // Variabel ini sekarang menampung Omzet
+    private lateinit var tvSubInfo: TextView // Variabel ini sekarang menampung Laba
     private lateinit var tvLowStock: TextView
     private lateinit var tvExpired: TextView
-    private lateinit var btnManageProducts: MaterialCardView // <-- Diubah ke MaterialCardView
+    private lateinit var btnManageProducts: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,6 @@ class DashboardActivity : AppCompatActivity() {
         tvExpired = findViewById(R.id.tvExpired)
         btnManageProducts = findViewById(R.id.btnManageProducts)
 
-        // Logika Tanggal Otomatis
         val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
         tvDate.text = dateFormat.format(Date())
 
@@ -59,13 +58,15 @@ class DashboardActivity : AppCompatActivity() {
                             maximumFractionDigits = 0
                         }
                         
-                        tvProfit.text = format.format(data.profit).replace("Rp", "Rp ")
+                        // ANGKA BESAR = OMZET
+                        tvProfit.text = format.format(data.revenue).replace("Rp", "Rp ")
                         
                         if (data.transactions_count == 0) {
                             tvSubInfo.text = "Belum ada transaksi hari ini."
                         } else {
-                            val omzet = format.format(data.revenue).replace("Rp", "Rp ")
-                            tvSubInfo.text = "Omzet $omzet • ${data.transactions_count} transaksi"
+                            // TEKS KECIL = LABA + JUMLAH TRANSAKSI
+                            val laba = format.format(data.profit).replace("Rp", "Rp ")
+                            tvSubInfo.text = "Laba $laba • ${data.transactions_count} transaksi"
                         }
                         
                         tvLowStock.text = "${data.low_stock_count} Item"
