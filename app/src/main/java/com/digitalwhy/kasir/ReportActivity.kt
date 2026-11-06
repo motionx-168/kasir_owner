@@ -34,7 +34,8 @@ class ReportActivity : AppCompatActivity() {
 
         // Memuat URL halaman laporan Laravel
         // Catatan: Ganti 8000 menjadi 8002 jika server Anda berjalan di port 8002
-        webView.loadUrl("http://127.0.0.1:8002/laporan")
+        val timestamp = System.currentTimeMillis()
+        webView.loadUrl("http://127.0.0.1:8002/laporan?v=$timestamp")
     }
 
     override fun onBackPressed() {
