@@ -18,6 +18,7 @@ class ReportActivity : AppCompatActivity() {
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
         webView = findViewById(R.id.webViewReport)
+        webView.clearCache(true)
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
