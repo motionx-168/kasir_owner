@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Warna Digital Why -->
+    <color name="dw_bg">#0F172A</color>
+    <color name="dw_surface">#1E293B</color>
+    <color name="dw_teal">#00BFA5</color>
+    <color name="dw_text_primary">#F8FAFC</color>
+    <color name="dw_text_secondary">#94A3B8</color>
+
+    <!-- TEXT STYLES (Mirip class CSS) -->
+    <style name="Text.Header" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/dw_text_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Display" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/dw_text_primary</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="Text.Label" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/dw_text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Body" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/dw_text_primary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

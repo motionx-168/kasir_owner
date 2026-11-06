@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F172A"
+    android:background="@color/dw_bg"
     android:fillViewport="true">
 
     <LinearLayout
@@ -13,21 +13,20 @@
         android:paddingHorizontal="20dp"
         android:paddingBottom="24dp">
 
-        <!-- TOP HEADER (Diperbaiki) -->
+        <!-- TOP HEADER -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="24dp">
 
+            <!-- Memanggil class Text.Header -->
             <TextView
                 android:id="@+id/tvGreeting"
+                style="@style/Text.Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Halo, Owner 👋"
-                android:textColor="#F8FAFC"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,29 +56,22 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- Header Tanggal -->
-                <LinearLayout
+                <TextView
+                    style="@style/Text.Body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hari ini"
-                        android:textColor="#B3FFFFFF"
-                        android:textSize="14sp" />
-                    <TextView
-                        android:id="@+id/tvDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kamis, 5 November 2026"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:text="Hari ini"
+                    android:alpha="0.7" />
 
-                <!-- Label Laba + Ikon -->
+                <TextView
+                    android:id="@+id/tvDate"
+                    style="@style/Text.Header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Kamis, 5 November 2026"
+                    android:layout_marginBottom="20dp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,38 +82,33 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_lucide_wallet"
-                        app:tint="#FFFFFF"
+                        app:tint="@color/dw_text_primary"
                         android:layout_marginEnd="8dp" />
 
                     <TextView
+                        style="@style/Text.Label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Laba Hari Ini"
-                        android:textColor="#E6FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/dw_text_primary"
+                        android:text="Laba Hari Ini" />
                 </LinearLayout>
 
-                <!-- Angka Laba -->
+                <!-- Memanggil class Text.Display -->
                 <TextView
                     android:id="@+id/tvProfit"
+                    style="@style/Text.Display"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp 0"
-                    android:textColor="#FFFFFF"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="-0.02"
                     android:layout_marginTop="4dp" />
 
-                <!-- Sub Info (Dipersingkat) -->
                 <TextView
                     android:id="@+id/tvSubInfo"
+                    style="@style/Text.Body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:alpha="0.7"
                     android:text="Belum ada transaksi hari ini."
-                    android:textColor="#B3FFFFFF"
-                    android:textSize="14sp"
                     android:layout_marginTop="4dp" />
 
             </LinearLayout>
@@ -132,113 +119,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:rowCount="1"
             android:layout_marginTop="16dp">
 
-            <!-- Stok Menipis -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginEnd="6dp"
-                app:cardBackgroundColor="#1E293B"
+                app:cardBackgroundColor="@color/dw_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#334155"
-                app:strokeWidth="1dp">
+                app:strokeColor="#334155" app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
-                    
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/ic_lucide_box"
-                            android:layout_marginEnd="6dp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stok Menipis"
-                            android:textColor="#94A3B8"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_lucide_box" android:layout_marginEnd="6dp" />
+                        <TextView style="@style/Text.Label" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="Stok Menipis" />
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvLowStock"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 Item"
-                        android:textColor="#FB923C"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="12dp" />
+                    <TextView android:id="@+id/tvLowStock" style="@style/Text.Header"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0 Item" android:textColor="#FB923C"
+                        android:textSize="22sp" android:layout_marginTop="12dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Hampir Expired -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginStart="6dp"
-                app:cardBackgroundColor="#1E293B"
+                app:cardBackgroundColor="@color/dw_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#334155"
-                app:strokeWidth="1dp">
+                app:strokeColor="#334155" app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
-                    
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/ic_lucide_calendar"
-                            android:layout_marginEnd="6dp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Hampir Expired"
-                            android:textColor="#94A3B8"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                            android:src="@drawable/ic_lucide_calendar" android:layout_marginEnd="6dp" />
+                        <TextView style="@style/Text.Label" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="Hampir Expired" />
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvExpired"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 Item"
-                        android:textColor="#FB7185"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="12dp" />
+                    <TextView android:id="@+id/tvExpired" style="@style/Text.Header"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0 Item" android:textColor="#FB7185"
+                        android:textSize="22sp" android:layout_marginTop="12dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>
 
-        <!-- ACTION BUTTONS (Diperbaiki) -->
+        <!-- ACTION BUTTONS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="24dp">
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnManageProducts"
                 android:layout_width="0dp"
@@ -246,33 +195,28 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:text="Kelola Produk"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:backgroundTint="#00BFA5"
+                android:textColor="@color/dw_text_primary"
+                android:textSize="14sp" android:textStyle="bold"
+                app:backgroundTint="@color/dw_teal"
                 app:cornerRadius="16dp"
                 app:icon="@drawable/ic_lucide_box"
-                app:iconTint="#FFFFFF"
+                app:iconTint="@color/dw_text_primary"
                 app:iconGravity="textStart" />
-
-            <!-- Laporan diubah jadi outline agar tidak terlihat mati -->
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:text="Laporan"
-                android:textColor="#F8FAFC"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:textColor="@color/dw_text_primary"
+                android:textSize="14sp" android:textStyle="bold"
                 app:backgroundTint="@android:color/transparent"
                 app:strokeColor="#475569"
                 app:strokeWidth="1dp"
                 app:cornerRadius="16dp"
                 app:icon="@drawable/ic_lucide_chart"
-                app:iconTint="#F8FAFC"
+                app:iconTint="@color/dw_text_primary"
                 app:iconGravity="textStart" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>
