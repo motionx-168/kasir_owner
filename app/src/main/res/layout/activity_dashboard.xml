@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingBottom="80dp">
+        android:paddingBottom="100dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -360,25 +360,28 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_gravity="bottom"
         android:background="@color/dw_surface"
         app:elevation="8dp"
         app:itemActiveIndicatorStyle="@style/Widget.DigitalWhy.BottomNav.ActiveIndicator"
+        app:itemIconSize="22dp"
         app:itemIconTint="@color/nav_item_color"
+        app:itemTextAppearance="@style/TextAppearance.DigitalWhy.BottomNav"
         app:itemTextColor="@color/nav_item_color"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="Scan"
         android:src="@drawable/ic_lucide_scan"
         app:backgroundTint="@color/dw_teal"
         app:layout_anchor="@id/bottomNavigation"
-        app:layout_anchorGravity="bottom|center_horizontal"
+        app:layout_anchorGravity="center_horizontal|top"
         app:tint="@color/dw_bg" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

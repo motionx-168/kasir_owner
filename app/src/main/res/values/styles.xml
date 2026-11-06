@@ -35,6 +35,11 @@
         <item name="android:letterSpacing">0.01</item>
     </style>
 
+    <style name="TextAppearance.DigitalWhy.BottomNav" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
     <style name="Widget.DigitalWhy.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">#1A00BFA5</item>
     </style>
