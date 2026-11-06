@@ -40,6 +40,10 @@ class DashboardActivity : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
         tvDate.text = dateFormat.format(Date())
 
+        btnLaporan.setOnClickListener {
+            startActivity(Intent(this, ReportActivity::class.java))
+        }
+
         btnManageProducts.setOnClickListener {
             startActivity(Intent(this, ProductListActivity::class.java))
         }

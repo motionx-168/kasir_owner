@@ -22,6 +22,7 @@
 
         <!-- Halaman Kelola Produk -->
         <activity android:name=".ProductListActivity" android:exported="false" />
+        <activity android:name=".ReportActivity" android:exported="false" />
 
     </application>
 </manifest>
