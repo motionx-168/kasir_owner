@@ -54,7 +54,7 @@ class DashboardActivity : AppCompatActivity() {
                         tvProfit.text = format.format(data.profit).replace("Rp", "Rp ")
                         
                         if (data.transactions_count == 0) {
-                            tvSubInfo.text = "Belum ada transaksi hari ini. Yuk, mulai jualan di Kasir POS!"
+                            tvSubInfo.text = "Belum ada transaksi hari ini."
                         } else {
                             val omzet = format.format(data.revenue).replace("Rp", "Rp ")
                             tvSubInfo.text = "Omzet $omzet • ${data.transactions_count} transaksi"
