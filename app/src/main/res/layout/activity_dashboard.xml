@@ -18,10 +18,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp">
 
-            <!-- Memanggil class Text.Header -->
             <TextView
                 android:id="@+id/tvGreeting"
                 style="@style/Text.Header"
@@ -70,7 +69,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Kamis, 5 November 2026"
                     android:layout_marginBottom="20dp" />
 
                 <LinearLayout
@@ -94,7 +92,6 @@
                         android:text="Laba Hari Ini" />
                 </LinearLayout>
 
-                <!-- Memanggil class Text.Display -->
                 <TextView
                     android:id="@+id/tvProfit"
                     style="@style/Text.Display"
@@ -115,13 +112,14 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- BENTO GRID -->
+        <!-- BENTO GRID 1: STATISTIK -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:layout_marginTop="16dp">
 
+            <!-- Stok Menipis -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -130,7 +128,8 @@
                 app:cardBackgroundColor="@color/dw_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#334155" app:strokeWidth="1dp">
+                app:strokeColor="#334155"
+                app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,6 +151,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Hampir Expired -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -160,7 +160,8 @@
                 app:cardBackgroundColor="@color/dw_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="#334155" app:strokeWidth="1dp">
+                app:strokeColor="#334155"
+                app:strokeWidth="1dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,41 +184,90 @@
             </com.google.android.material.card.MaterialCardView>
         </GridLayout>
 
-        <!-- ACTION BUTTONS -->
-        <LinearLayout
+        <!-- BENTO GRID 2: ACTION BUTTONS (MENGGUNAKAN CARD) -->
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="24dp">
-            <com.google.android.material.button.MaterialButton
+            android:columnCount="2"
+            android:layout_marginTop="16dp">
+
+            <!-- Kelola Produk Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnManageProducts"
                 android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="Kelola Produk"
-                android:textColor="@color/dw_text_primary"
-                android:textSize="14sp" android:textStyle="bold"
-                app:backgroundTint="@color/dw_teal"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_lucide_box"
-                app:iconTint="@color/dw_text_primary"
-                app:iconGravity="textStart" />
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="Laporan"
-                android:textColor="@color/dw_text_primary"
-                android:textSize="14sp" android:textStyle="bold"
-                app:backgroundTint="@android:color/transparent"
-                app:strokeColor="#475569"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="6dp"
+                app:cardBackgroundColor="@color/dw_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#334155"
                 app:strokeWidth="1dp"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_lucide_chart"
-                app:iconTint="@color/dw_text_primary"
-                app:iconGravity="textStart" />
-        </LinearLayout>
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="#33FFFFFF">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_lucide_box"
+                        app:tint="@color/dw_teal"
+                        android:layout_marginEnd="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kelola\nProduk"
+                        android:textColor="@color/dw_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Laporan Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnLaporan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="6dp"
+                app:cardBackgroundColor="@color/dw_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#334155"
+                app:strokeWidth="1dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="#33FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_lucide_chart"
+                        app:tint="@color/dw_text_primary"
+                        android:layout_marginEnd="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laporan"
+                        android:textColor="@color/dw_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </GridLayout>
+
     </LinearLayout>
 </ScrollView>

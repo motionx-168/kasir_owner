@@ -6,7 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -20,7 +20,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var tvSubInfo: TextView
     private lateinit var tvLowStock: TextView
     private lateinit var tvExpired: TextView
-    private lateinit var btnManageProducts: MaterialButton
+    private lateinit var btnManageProducts: MaterialCardView // <-- Diubah ke MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,6 @@ class DashboardActivity : AppCompatActivity() {
         window.statusBarColor = android.graphics.Color.TRANSPARENT
         androidx.core.view.WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = false
 
-        // Inisialisasi View
         tvDate = findViewById(R.id.tvDate)
         tvProfit = findViewById(R.id.tvProfit)
         tvSubInfo = findViewById(R.id.tvSubInfo)
@@ -38,7 +37,7 @@ class DashboardActivity : AppCompatActivity() {
         tvExpired = findViewById(R.id.tvExpired)
         btnManageProducts = findViewById(R.id.btnManageProducts)
 
-        // LOGIKA TANGGAL OTOMATIS
+        // Logika Tanggal Otomatis
         val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
         tvDate.text = dateFormat.format(Date())
 
