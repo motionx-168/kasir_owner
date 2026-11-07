@@ -3,6 +3,7 @@ package com.digitalwhy.kasir
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -68,9 +69,24 @@ class ProductListActivity : AppCompatActivity() {
             setDropDownViewResource(R.layout.item_spinner)
         }
 
-        val iconLabels = arrayOf("Package", "Egg", "Milk", "Wheat")
-        spIcon.adapter = ArrayAdapter(this, R.layout.item_spinner, iconLabels).apply {
-            setDropDownViewResource(R.layout.item_spinner)
+        val iconOptions = listOf(
+            Pair("package", "Kemasan"),
+            Pair("egg", "Telur"),
+            Pair("milk", "Susu"),
+            Pair("wheat", "Beras")
+        )
+        spIcon.adapter = object : ArrayAdapter<Pair<String, String>>(this, R.layout.item_spinner, iconOptions) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val tv = super.getView(position, convertView, parent) as TextView
+                tv.text = getItem(position)?.second ?: ""
+                return tv
+            }
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val tv = super.getDropDownView(position, convertView, parent) as TextView
+                tv.text = getItem(position)?.second ?: ""
+                return tv
+            }
         }
 
         val dialog = AlertDialog.Builder(this)
@@ -104,12 +120,7 @@ class ProductListActivity : AppCompatActivity() {
                     2 -> "unit"
                     else -> "barcode"
                 },
-                icon = when (spIcon.selectedItemPosition) {
-                    1 -> "egg"
-                    2 -> "milk"
-                    3 -> "wheat"
-                    else -> "package"
-                }
+                icon = iconOptions.getOrElse(spIcon.selectedItemPosition) { iconOptions.first() }.first
             )
 
             saveProduct(product, dialog)
